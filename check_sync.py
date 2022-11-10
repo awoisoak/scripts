@@ -63,7 +63,7 @@ for item in sorted((f for f in os.listdir(local_root) if not f.startswith(".")),
     else:  
         printError(f"Unsync files ==> Local: {local_counter}, Cloud:{cloud_counter}")       
         if cloud_counter > local_counter:
-             printError(f"Error! {cloud_counter - local_counter} more file(s) in cloud than in local (duplicated)? Check them below:")  
+            printError(f"Error! {cloud_counter - local_counter} more file(s) in cloud than in local (duplicated)? Check them below:")  
         elif cloud_counter != 0: 
             printError(f"Error! {local_counter - cloud_counter} files are missing in cloud folder. Check them below: ")  
 
