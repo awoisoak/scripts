@@ -1,9 +1,15 @@
-import os
+import os, sys
 from colorama import Fore, Style
 
 """ Check Sync
 Script to easily see which files are not syncronized between two folders.
 (Google Drive syncronization with external drives sucks!)
+
+1) Fill $local_root with the local folder path and $cloud_root with the cloud folder path
+
+To check everything simply execute the script (ex. python3 check_sync.py) 
+To check a specific folder just pass its relative path (respect $local_root) as a parameter (ex. python3 check_sync.py my/SubFolder/path)
+
 """
 def printSuccess(msg):
     print(Fore.GREEN + msg)
@@ -15,11 +21,18 @@ def printError(msg):
 
 
 # External hdd path with the files to backup
-local_root = r'[LOCAL_PATH]'
+local_root = '[LOCAL_PATH]'
 
 # Cloud drive path
-cloud_root = '[CLOUD_PATH]'
+cloud_root = '[ROOT_PATH]'
 
+if len(sys.argv) == 2:
+    subpath= sys.argv[1] if sys.argv[1].endswith('/') else sys.argv[1] +'/'
+    local_root = os.path.join(local_root, subpath)
+    cloud_root = os.path.join(cloud_root, subpath)
+    if os.path.exists(local_root) == False:
+        printError(f'{local_root} is not a valid directory')
+        quit()
 
 # Loop sorted list of all root items in $local ignoring hidden files 
 # First will check the number of files, if they are the same it will assume everything is sync correxctly
