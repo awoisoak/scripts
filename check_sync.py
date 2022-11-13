@@ -42,8 +42,8 @@ for item in sorted((f for f in os.listdir(local_root) if not f.startswith(".")),
     cloud_path = os.path.join(cloud_root, item)
     # If files are included in root $local folder we check whether it exists in Cloud Drive 
     if os.path.isfile(local_path):
-        if os.path.isfile(cloud_path): print(item, 'present in both local and cloud  \n')
-        else: printError(f"Error: root file {item} not present in cloud !!!\n")        
+        if os.path.isfile(cloud_path) == False: 
+            printError(f"Error: root file {item} not present in cloud !!!\n")        
         continue
 
     print('Folder: ', item)
