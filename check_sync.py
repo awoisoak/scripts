@@ -5,10 +5,10 @@ from colorama import Fore, Style
 Script to easily see which files are not syncronized between two folders.
 (Google Drive syncronization with external drives sucks!)
 
-1) Fill $local_root with the local folder path and $cloud_root with the cloud folder path
+1) Fill $local_root and $cloud_root with the corresponding local and cloud absolute folder paths
 
 To check everything simply execute the script (ex. python3 check_sync.py) 
-To check a specific folder just pass its relative path (respect $local_root) as a parameter (ex. python3 check_sync.py my/SubFolder/path)
+To check a specific folder just pass its relative path as a parameter (ex. python3 check_sync.py my/SubFolder/path)
 
 """
 def printSuccess(msg):
