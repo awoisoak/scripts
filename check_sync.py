@@ -4,6 +4,7 @@ from colorama import Fore, Style
 """ Check Sync
 Script to easily see which files are not syncronized between two folders.
 (Google Drive syncronization with external drives sucks!)
+This script will ignore hidden files (the ones started by a dot)
 
 1) Fill $local_root with the local folder path and $cloud_root with the cloud folder path
 
@@ -21,10 +22,12 @@ def printError(msg):
 
 
 # External hdd path with the files to backup
-local_root = '[LOCAL_PATH]'
+# ex. local_root = r'/Volumes/xxx/Photos/'
+local_root = r'[LOCAL_PATH]'
 
 # Cloud drive path
-cloud_root = '[ROOT_PATH]'
+# ex. cloud_root = r'/Users/xxx/Library/CloudStorage/GoogleDrive-xxx@gmail.com/My Drive/Photos/'
+cloud_root = r'[ROOT_PATH]'
 
 if len(sys.argv) == 2:
     subpath= sys.argv[1] if sys.argv[1].endswith('/') else sys.argv[1] +'/'
