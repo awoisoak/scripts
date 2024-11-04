@@ -6,7 +6,15 @@ Script to easily see which files are not syncronized between two folders.
 (Google Drive syncronization with external drives sucks!)
 This script will ignore hidden files (the ones started by a dot)
 
-1) Fill $local_root with the local folder path and $cloud_root with the cloud folder path
+1) If you need to install any of the dependencies download them using a virtual environment.
+ex)
+'''
+python3 -m venv myenv
+source myenv/bin/activate
+pip install colorama
+'''
+
+2) Fill $local_root with the local folder path and $cloud_root with the cloud folder path
 
 To check everything simply execute the script (ex. python3 check_sync.py) 
 To check a specific folder just pass its relative path (respect $local_root) as a parameter (ex. python3 check_sync.py my/SubFolder/path)
